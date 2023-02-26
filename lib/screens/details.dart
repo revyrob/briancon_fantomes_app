@@ -27,7 +27,29 @@ class _DetailsScreenState extends State<DetailsScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 25),
           child: Column(
             children: [
-              NeuBox(child: Image.asset(widget.data.imageName)),
+              //child with image
+              NeuBox(
+                  child: Column(
+                children: [
+                  ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: Image.asset(widget.data.imageName)),
+                  Text(
+                    widget.data.title,
+                    style: const TextStyle(
+                        color: Colors.black87,
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    widget.data.location,
+                    style: const TextStyle(
+                        color: Colors.black54,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              )),
             ],
           ),
         ))

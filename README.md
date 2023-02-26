@@ -1,17 +1,14 @@
-# briancon_fantomes
+# Briancon Fantomes Flutter App
 
-A new Flutter project.
+Taking the audio tour from <a href="https://github.com/revyrob/brianconFantomes-V2">Briancon Fantomes Site</a> and turning it into
+a Flutter application.  
 
-## Getting Started
+## Working On
 
-This project is a starting point for a Flutter application.
+<li>Add the images and the audio files to the Homepage</li>
+<li>Making a four page app: Homepage, Info Page, Audio Carousel Page, Map Page</li>
+<li>Letting the user choose French or English at First</li>
+<li>Turning into an APK to test</li>
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# briancon_fantomes_app

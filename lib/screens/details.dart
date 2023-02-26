@@ -1,4 +1,5 @@
 //import 'package:carousel_hero/models/models.dart';
+import 'package:briancon_fantomes/components/neobox.dart';
 import 'package:briancon_fantomes/models/models.dart';
 import 'package:flutter/material.dart';
 
@@ -15,62 +16,76 @@ class _DetailsScreenState extends State<DetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        iconTheme: const IconThemeData(color: Colors.black54),
-        elevation: 0,
-      ),
-      body: Column(
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(bottom: 20),
-            child: Text(
-              widget.data.title,
-              style: const TextStyle(
-                  color: Colors.black87,
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold),
-            ),
-          ),
-          Expanded(
-              flex: 3,
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Hero(
-                  tag: widget.data.imageName,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(30),
-                        image: DecorationImage(
-                            image: AssetImage(
-                              widget.data.imageName,
-                            ),
-                            fit: BoxFit.fill),
-                        boxShadow: const [
-                          BoxShadow(
-                              offset: Offset(0, 4),
-                              blurRadius: 4,
-                              color: Colors.black26)
-                        ]),
-                  ),
-                ),
-              )),
-          Expanded(
-            flex: 1,
+        // app bar with back are and where it goes
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          iconTheme: const IconThemeData(color: Colors.black87),
+          elevation: 0,
+        ),
+        body: SafeArea(
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 20),
-              child: Text(
-                "Price \$${widget.data.price}",
-                style: const TextStyle(
-                    color: Colors.black54,
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
+          padding: const EdgeInsets.symmetric(horizontal: 25),
+          child: Column(
+            children: [
+              NeuBox(child: Image.asset(widget.data.imageName)),
+            ],
           ),
-        ],
-      ),
-    );
+        ))
+        //Column(
+        //Image
+        //chapter and title
+        //info for playing using audio player
+        //play button and pause button for audio player
+        // children: <Widget>[
+        //   Padding(
+        //     padding: const EdgeInsets.only(bottom: 20),
+        //     child: Text(
+        //       widget.data.title,
+        //       style: const TextStyle(
+        //           color: Colors.black87,
+        //           fontSize: 25,
+        //           fontWeight: FontWeight.bold),
+        //     ),
+        //   ),
+        //   Expanded(
+        //       flex: 3,
+        //       child: Padding(
+        //         padding: const EdgeInsets.all(20.0),
+        //         child: Hero(
+        //           tag: widget.data.imageName,
+        //           child: Container(
+        //             decoration: BoxDecoration(
+        //                 color: Colors.white,
+        //                 borderRadius: BorderRadius.circular(30),
+        //                 image: DecorationImage(
+        //                     image: AssetImage(
+        //                       widget.data.imageName,
+        //                     ),
+        //                     fit: BoxFit.fill),
+        //                 boxShadow: const [
+        //                   BoxShadow(
+        //                       offset: Offset(0, 4),
+        //                       blurRadius: 4,
+        //                       color: Colors.black26)
+        //                 ]),
+        //           ),
+        //         ),
+        //       )),
+        //   Expanded(
+        //     flex: 1,
+        //     child: Padding(
+        //       padding: const EdgeInsets.only(bottom: 20),
+        //       child: Text(
+        //         widget.data.location,
+        //         style: const TextStyle(
+        //             color: Colors.black54,
+        //             fontSize: 24,
+        //             fontWeight: FontWeight.bold),
+        //       ),
+        //     ),
+        //   ),
+        // ],
+        //),
+        );
   }
 }

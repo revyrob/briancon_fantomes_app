@@ -42,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
             const Padding(
               padding: EdgeInsets.all(40.0),
               child: Center(
-                child: Text("Find Your Style",
+                child: Text("Audio Tour",
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.black87,
@@ -131,7 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Text(
-            "\$${data.price}",
+            data.location,
             style: const TextStyle(
                 color: Colors.black87,
                 fontSize: 16,

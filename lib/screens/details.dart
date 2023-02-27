@@ -1,4 +1,5 @@
 //import 'package:carousel_hero/models/models.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:briancon_fantomes/components/neobox.dart';
 import 'package:briancon_fantomes/models/models.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,8 @@ class DetailsScreen extends StatefulWidget {
 }
 
 class _DetailsScreenState extends State<DetailsScreen> {
+  //add audio player
+  final player = AudioPlayer();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,24 +35,73 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   child: Column(
                 children: [
                   ClipRRect(
-                      borderRadius: BorderRadius.circular(8),
-                      child: Image.asset(widget.data.imageName)),
-                  Text(
-                    widget.data.title,
-                    style: const TextStyle(
-                        color: Colors.black87,
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold),
+                    borderRadius: BorderRadius.circular(25),
+                    child: Image.asset(widget.data.imageName,
+                        fit: BoxFit.cover, height: 350, width: 350),
                   ),
-                  Text(
-                    widget.data.location,
-                    style: const TextStyle(
-                        color: Colors.black54,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        Text(
+                          widget.data.title,
+                          style: const TextStyle(
+                              color: Colors.black87,
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          widget.data.location,
+                          style: const TextStyle(
+                              color: Colors.black54,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               )),
+              //spacing
+              const SizedBox(
+                height: 25,
+              ),
+
+              //Time lapse
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: const [Text("0'00"), Text("4'22")],
+              ),
+
+              //buttons for play and pause
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 24.0),
+                child: SizedBox(
+                    height: 80,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        // Expanded(
+                        //     child: NeuBox(
+
+                        //         child: Icon(Icons.play_arrow, size: 32))),
+                        ElevatedButton(
+                          onPressed: () async {
+                            await player.play(AssetSource(widget.data.audio));
+                          },
+                          child: const Text('to play click here'),
+                        ),
+                        // onPressed: () {
+                        //   played.play(
+                        //       AssetSource('audio/audioAng/Chpt1.mp3'));
+                        // },
+                        // child: const Icon(Icons.play_arrow))
+                      ],
+                    )),
+              )
             ],
           ),
         ))
